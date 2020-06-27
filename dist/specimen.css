@@ -1,0 +1,88 @@
+:root {
+	--font: #d4cdbb;
+	--bg: black;
+}
+
+#content{
+	font-family: 'Liberation';
+	background-color: var(--bg);
+}
+
+#serif{
+	font-family: 'Messapia';
+}
+
+#sans{
+	font-family: 'Messapia';
+	font-weight: bold;
+}
+
+#rech img,
+#refs img,
+#specimen-img img,
+.gallery img,
+#specimen img{
+	width: 100%;
+}
+
+#top{
+	width: 100%;
+	height: 100vh;
+	background-image: url(img/messapia-0.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#intro,
+#contexte,
+#charte{
+	background-color: var(--font);
+	color: var(--bg);
+}
+
+
+#content p{
+}
+
+#content h3,
+#content h4{
+	font-family: 'Messapia';
+	font-weight: normal;
+}
+
+
+#refs{
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-gap: 15px 15px;
+}
+
+#rech h4{
+	margin-left: 15%;
+}
+
+#rech img{
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+#manip{
+	width: 70%;
+	margin: auto;
+}
+
+#manip video{
+	width: 100%;
+}
+
+
+#bandeau{
+	width: 100%;
+	height: 100vh;
+	background-image: url(img/messapia-0.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}

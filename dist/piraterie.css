@@ -1,0 +1,158 @@
+@import url("bookup.css");
+
+:root {
+	--black: #111111;
+	--blue: #1a2854;
+	--grey: #a7a9ac;
+
+	--font: white;
+	--bg: #111111;
+}
+
+#content{
+	font-family: 'LiberationMono';
+}
+
+div#title{
+	width: 100%;
+	margin: auto;
+	height: 100vh;
+	background-color: var(--grey);
+}
+
+#intro{
+	background-color: var(--black);
+}
+
+#contexte{
+	background-color: var(--grey);
+	color: black;
+}
+
+#concept{
+	background-color: var(--blue);
+	color: white;
+}
+
+#concept-refs{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 48% 48%;
+	justify-content: space-between;
+}
+
+#concept-refs img{
+	width: 100%;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+
+#concept-refs img:hover{
+	-webkit-filter: none; 
+	filter: none;
+}
+
+
+#methodo{
+	background-color: var(--black);
+	color: white;
+}
+
+.methodo-grid{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	justify-content: space-between;
+	border-bottom: 1px solid white;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+#methodo-schema{
+	padding: 25px;
+}
+
+#misenforme{
+	border: none;
+}
+
+.methodo-bloc video, .methodo-bloc img{
+	width: 100%;
+}
+
+#rech img{
+	width: 100%;
+	padding-bottom: 25px;
+}
+
+#rech h4{
+	width: 70%;
+	margin: auto;
+	padding: 25px;
+}
+
+
+
+#rech,
+#identite{
+	background-color: var(--grey);
+	color: black;
+}
+
+#identite{
+	margin-top: -100px;
+}
+
+.identite-grid{
+	display: grid;
+	grid-template-columns: 49% 49%;
+	justify-content: space-between;
+}
+
+.identite-grid img{
+	width: 100%;
+	padding-bottom: 25px;
+}
+
+#identite-typo{
+	padding: 25px;
+	border: 1px solid black;
+}
+
+
+#identite-colors{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 48% 48%;
+	justify-content: space-between;
+}
+
+.identite-color{
+	width: 100%;
+	height: 200px;
+}
+
+#color-black{
+	background-color: var(--black);
+	border: 1px solid var(--black);
+}
+
+#color-blue{
+	background-color: var(--blue);
+	border: 1px solid var(--blue);
+}
+
+#color-grey{
+	background-color: var(--grey);
+	border: 1px solid;
+}
+
+#color-white{
+	background-color: white;
+	border: 1px solid white;
+}
+
+#selection{
+	background-color: var(--blue);
+	color: white;
+}

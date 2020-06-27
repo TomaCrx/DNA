@@ -1,0 +1,71 @@
+:root {
+	--font: #e60000;
+	--bg: black;
+	--grey: #d9d5e4;
+/*		--font: white;*/
+}
+
+#content{
+	font-family: 'Eurostile';
+}
+
+#content h3{
+	font-weight: bold;
+}
+
+#intro{
+	width: 100%;
+	min-height: 100vh;
+}
+
+#intro video{
+	width: 100%;
+}
+
+#contexte{
+}
+
+#shotgrid{
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 25px 25px;
+
+}
+
+#shotgrid img{
+	width: 100%;
+}
+
+#bandeau1{
+	width: 100%;
+	min-height: 100vh;
+	background-image: url(img/nofear.jpg);
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
+}
+
+#storyboard{
+	padding-top: 0px;
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	grid-gap: 25px 25px;
+}
+
+#storyboard img{
+	width: 100%;
+}
+
+#cd{
+	width: 60%;
+	margin: auto;
+}
+
+#cd img{
+	width: 100%;
+}
+
+#vimeo{
+	padding-bottom: 125px; padding-top: 125px;
+}

@@ -1,0 +1,105 @@
+:root {
+	--font: #f2f2f2;
+	--bg: black;
+	--grey: #b3b3b3;
+}
+
+
+#content{
+	font-family: 'Fraktur';
+}
+
+#content p{
+	font-family: 'Liberation';
+}
+
+#content h3{
+	text-transform: lowercase;
+}
+
+#intro{
+	width: 100%;
+	height: 100vh;
+	background-image: url(img/extremecover.jpg);
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
+}
+
+#brief, #concept, #website{
+	background-color: var(--grey);
+	color: var(--bg);
+}
+
+#refs{
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-gap: 0px 25px;
+}
+
+#refs img{
+	width: 100%;
+}
+
+#edition img, #website img{
+	width: 100%;
+	padding-bottom: 25px;
+}
+
+#typo svg{
+	width: 100%;
+	fill: white;
+}
+
+#typo{
+	width: 80%;
+	margin: auto;
+	padding: 25px;
+}
+
+
+#identite-colors{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 48% 48%;
+	justify-content: space-between;
+}
+
+.identite-color{
+	width: 100%;
+	height: 200px;
+}
+#color-white{
+	background-color: white;
+	border: 1px solid white;
+}
+#color-black{
+	background-color: black;
+	border: 1px solid white;
+}
+#couv img{
+	width: 100%;
+}
+
+#rech img{
+	width: 100%;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+
+#rech video{
+	width: 100%;
+}
+
+#gabarit{
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-gap: 25px 25px;
+}
+
+#gabarit img{
+	width: 100%;
+}

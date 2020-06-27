@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>INOV</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="inov.css">
+	<script src="jquery-3.4.1.min.js"></script>
+	<script src="moment.js"></script>
+	<script src="processing.min.js"></script>
+	<script>
+		function update() {
+		  $('#clock').html(moment().format('D. MMMM YYYY H:mm:ss'));
+		}
+		setInterval(update, 1000);
+	</script>
+</head>
+<body>
+	<div id="main">
+
+		<div id="header" title="cliquer pour ouvrir le menu">
+			<ul>
+				<li>Thomas Conroix</li>
+				<li>DNA Communication Graphique – HEAR Strasbourg Session 2020</li>
+				<li><div id="clock"></div></li>
+			</ul>
+		</div> <!-- end header -->
+		
+		<div id="menu">
+			<div>
+				<a href="../index.html">Index</a>
+
+				<a href="piraterie.html">Piraterie Advisory<span> ― Double édition</span></a>
+
+				<a href="konsum.html">Konsum<span> ― Installation vidéo & dispositif VR</span></a>
+
+				<a href="blackballade.html">Black Ballade<span> ― Installation vidéo & Édition</span></a>
+
+				<a href="vision.html">Vision Academy<span> ― Identité visuelle</span></a>
+
+				<a href="inov.html">INOV<span> ― Installation interactive</span></a>
+
+				<a href="conversation.html">The Conversation<span> ― Générique</span></a>
+
+				<a href="extremelogos.html">Extreme Logos<span> ― Édition & site web</span></a>
+
+				<a href="eros.html">Eros Pharmakon<span> ― Video process</span></a>		
+			
+				<a href="specimen.html">Amour Ivresse Haine<span> ― Spécimen typographique</span></a>
+
+				<a href="nowhere.html">Nwhr Xtrm Club<span> ― Photographie & Stylisme</span></a>
+
+				<a href="nofear.html">No Fear<span> ― Teaser</span></a>
+
+				<a href="wastedlogos.html">Wasted Throne & Fire<span> ― Logotypes</span></a>
+
+			</div>	
+		</div> <!-- end menu -->
+
+		<div id="footer" title="cliquer pour ouvrir le menu">
+			<ul>
+				<li>INOV</li>
+				<li>Installation interactive</li>
+				<li>p3 – 847Ko</li>
+				<li>Kinect, Vidéoprojecteur, Moniteur</li>
+			</ul>
+		</div> <!-- end footer -->
+
+		<div id="content">
+
+			<div class="fullpart" id="cover"></div>
+
+			<div class="part" id="intro">
+				<h3>I.N.O.V.</h3>
+				<p>Dispositif interractif installé au Centre Pompidou pendant le cadre du festival "La Fête du Code Créatif".</p>
+			</div> <!-- end part intro -->
+
+			<div class="part" id="contexte">
+				<h3>Contexte</h3>
+				<p>À l’occasion du festival La Fête du Code Créatif organisé par le Centre Pompidou, nous — étudiants de BTS2 — devions concevoir une installation numérique de médiation culturelle se référant à une oeuvre issue de l’exposition La Fabrique du Vivant. Mon groupe et moi travaillions sur le projet d’Alison Kudla : <span>Capacity For (Urban Eden — Human Error)</span>, un projet explorant les techniques d’impression d’organismes végétaux.</p>
+				<div id="oeuvre">
+					<img src="img/kudla-1.jpg">
+					<img src="img/kudla-3.jpg">
+					<img src="img/kudla-2.jpg">
+					<img src="img/kudla-4.jpg">
+				</div> <!-- end oeuvre -->
+			</div> <!-- end part contexte -->
+
+			<div class="part" id="instal">
+				<h3>Installation</h3>
+				<div id="instal-grid">
+					
+					<p>Notre installation, baptisée « INOV » (Interaction numérique organique et végétale), ainsi que notre présence visait à promouvoir et faire découvrir les possibilités créatives du code au jeune public, le programme étant réalisé avec Processing 3.</p>
+
+					<img src="img/inov-4.jpg">
+
+					<img src="img/inov-3.jpg">
+
+					<p>Nous nous sommes réapproprié l’oeuvre sous forme exclusivement numérique. Le public devient acteur et génère du bout des doigts un organisme végétal volubile. À l’aide d’un Kinect, le script Processing vient détecter la main de l’utilisateur. Celle-ci est utilisée comme curseur et l’utilisateur génère à sa guise les particules numériques de l’installation, sans aucune interaction dite concrète.</p>
+
+					<p> Ce projet témoigne des échanges et porosités possibles entre organismes biologiques et organismes numériques, tout comme le fait l’agence de design graphique Chevalvert, spécialisée dans la conception d’installations et outils interactifs. Leurs projets et dispositifs ouvrent des portes entre les différents univers, qu’ils soient numériques, sonores, visuels ou organiques. Le processus de travail de ce studio influence particulièrement ma pratique numérique.</p>
+
+					<img src="img/inov-2.jpg">
+
+				</div> <!-- end instal-grid -->
+				
+			</div> <!-- end part instal -->
+
+			<div class="fullpart" id="bandeau"></div>
+
+			<div class="fullpart" id="sketch">
+				<script type="application/processing" target="mon_prog">
+					// particules
+					ArrayList<MovingNode> nodes;
+					float maxDistance = 0;
+					float da_x = 5;
+					float da_y = 5;
+					float maxNeighbors = 10;
+
+					Boolean drawMode = true;
+
+					float[] x = new float [130];
+					float[] y = new float [130];
+					float easing = 0.01;
+					float[] dx = new float [130];
+					float[] dy = new float [130];
+
+
+					//import de font pour l'interface
+					PFont spacemono;
+
+
+					// import de la librairie kinect
+					//import org.openkinect.freenect.*;
+					//import org.openkinect.processing.*;
+
+					// Création d'un objet de type Kinect pour accéder aux méthodes de l'appareil
+					//Kinect Ma_Kinect ;
+
+					// Objet PImage
+					PImage Mon_Image ;
+
+					// Des seuils comme variables
+					float minSeuil = 200 ;
+					float maxSeuil = 800 ;
+					float cam_x = 0; 
+
+
+					//fonction courbe pour réguler la taille max des connexions
+					// float courbe = 0.0;
+					float courbe = PI ;
+
+					// valeurs pour lisser le déplacement de recX recY
+					//float precX = 0;
+					//float precY = 0;
+					float posX = 0;
+					float posY = 0;
+
+					void setup(){
+					//fullScreen();
+					size(1280, 720);
+					background(10);
+
+					nodes = new ArrayList<MovingNode>();
+					  
+					//Ma_Kinect = new Kinect(this);
+					//Ma_Kinect.initDepth();
+
+					spacemono = loadFont("SpaceMono-Regular-72.vlw");
+
+					} // FIN SETUP
+
+					void draw(){ 
+					  
+					//création de la boucle pour la taille max des connexions
+					//lissage de sa vitesse
+					courbe += 0.002 ;
+					maxDistance = (cos(courbe)+1)*25;
+					// cos(0) = 1 (+ 1) = 2 * 25 = 50
+					// 
+					posX = mouseX;
+					posY = mouseY;
+
+					background(10);
+
+					pushMatrix();
+					//scale(4,3);
+
+					// AJOUT – Trois variables pour détecter le point le plus proche de la Kinect
+					// au sein des seuils de détection.
+					//float record = 2048 ; // Record de base
+					//float recX = 0; // Coordonnée x
+					//float recY = 0; // Coordonnée y
+
+					// On récupère les valeurs brutes de distance dans la Kinect
+					// à chaque appel de Draw
+					//int[] prof = Ma_Kinect.getRawDepth();
+
+					//for (int cam_x = 0; cam_x < Ma_Kinect.width; cam_x ++) {
+					//for (int cam_y = 0; cam_y < Ma_Kinect.height; cam_y ++) {
+
+					// On calcule l'index de la valeur dans le tableau par rapport à la position x/y du point
+					//int offset =(Ma_Kinect.width-cam_x-1) + cam_y*Ma_Kinect.width ;
+					// On récupère la profondeur du point
+					//float p = prof[offset];
+
+					// AJOUT – Si p est à une distance inférieure du précédent record,
+					// c'est désormais le nouveau record
+					//if (p < record) {
+					//record = p ;
+					//recX = cam_x ;
+					//recY = cam_y ;
+					//}
+
+					//} // Fermeture de for(cam_y)
+					//} // Fermeture de for(cam_x)
+
+					//posX = lerp(precX, recX, 0.05) ;
+					//posY = lerp(precY, recY, 0.05) ;
+					//precX = posX ; // La positon calculée devient la position précédente enregistrée
+					//precY = posY ; // La positon calculée devient la position précédente enregistrée
+
+					if (mousePressed == true) {
+					//if((record > minSeuil) && (record < maxSeuil)) {
+					     
+					//affiche la main du créateur de graines
+					noFill();
+					stroke(255);
+					ellipse(posX,posY,20,20);
+					  
+					// créer les particules = semer les graines
+					addNewNode(posX,posY,random(-da_x,da_x),random(-da_x,da_x));
+					}
+					   
+					// recherches des particules voisines dans leur zone (maxDistance)
+					for(int i=0; i<nodes.size(); i++){
+					MovingNode currentNode = nodes.get(i);
+					currentNode.setNumNeighbors( countNumNeighbors(currentNode,maxDistance) );
+					}
+					  
+					// retirer les particules lorsqu'elles sortent de l'écran
+					for(int i=0; i<nodes.size(); i++)
+					{
+					MovingNode currentNode = nodes.get(i);
+					if(currentNode.x > width || currentNode.x < 0 || currentNode.y > height || currentNode.y < 0){
+					nodes.remove(currentNode);
+					} 
+					}
+					  
+					// retirer les particules lorsqu'elles arrivent à 200
+					for(int i=0; i<nodes.size(); i++){
+					MovingNode currentNode = nodes.get(i);
+					if(nodes.size()>200){
+					nodes.remove(currentNode);
+					} 
+					}
+
+					// graines
+					for(int i = 0; i < nodes.size(); i++){
+					MovingNode currentNode = nodes.get(i);
+					for(int j=0; j<currentNode.neighbors.size(); j++){
+					MovingNode neighborNode = currentNode.neighbors.get(j);
+					float lineColor = currentNode.calculateLineColor(neighborNode,maxDistance);
+					// stroke(lineColor, lineColor, lineColor);
+					stroke(0,lineColor,0);
+					line(currentNode.x,currentNode.y,neighborNode.x,neighborNode.y);
+					}
+					currentNode.display();
+					}
+
+					popMatrix();
+
+					//scale(3,3);
+
+					// INTERFACE
+					fill(255);
+					textFont(spacemono);
+
+					textSize(13);
+					textAlign(LEFT);
+					text("INOV", 20, 700);
+
+					textAlign(RIGHT);
+					textSize(13);  
+					// nombre de graines plantées
+					//textAlign(LEFT);
+					text("Graines", 460, 680);
+					//textAlign(RIGHT);
+					text(nodes.size(), 460, 700);
+					    
+					// taille max des connexions
+					// temps qui passe dans le scénario de l'oeuvre
+					//textAlign(LEFT);
+					text("Connexions", 860, 680);
+					//textAlign(RIGHT);
+					text((cos(courbe)+1)*25 , 860, 700);
+					    
+
+
+					//position recX recY
+					text("Position", 1260, 680);
+
+					text("X", 1180, 700);
+					text(int(posX) , 1260, 700);
+
+					text("Y", 1230, 700);
+					text(int(posY) , 1210, 700);
+					  
+					  
+					  
+					} // FIN DRAW
+
+
+
+
+
+
+
+
+					void addNewNode(float xPos, float yPos, float da_x, float da_y){
+					// ajouter particule sur une position
+					MovingNode node = new MovingNode(xPos+da_x,yPos+da_y);
+					  
+					node.setNumNeighbors( countNumNeighbors(node,maxDistance) );
+					  
+					  
+					if(node.numNeighbors < maxNeighbors){
+					nodes.add(node);
+					} 
+					} // FIN VOID ADDNEWNODE
+
+					// calculer nombre de particules voisines
+					int countNumNeighbors(MovingNode nodeA, float maxNeighborDistance){
+					int numNeighbors = 0;
+					nodeA.clearNeighbors();
+					for(int i = 0; i < nodes.size(); i++){
+					MovingNode nodeB = nodes.get(i);
+					float distance = sqrt((nodeA.x-nodeB.x)*(nodeA.x-nodeB.x) + (nodeA.y-nodeB.y)*(nodeA.y-nodeB.y));
+					if(distance < maxNeighborDistance){
+					numNeighbors++;
+					nodeA.addNeighbor(nodeB);
+					}
+					}
+					return numNeighbors;
+					}
+
+
+					//class déplacement des particules
+					class MovingNode{
+					float x;
+					float y;
+					int numNeighbors;
+					ArrayList<MovingNode> neighbors;
+					float lineColor;
+					float nodeWidth = 3;
+					float nodeHeight = 3;
+					  
+					//couleur graines
+					float fillColor = 255;
+					float lineColorRange = 255;
+
+					// vitesse de déplacement des particules
+					float xVel=0;
+					float yVel=0;
+					float xAccel=0;
+					float yAccel=0;
+					// varier la vitesse des particules lors de leur accelération
+					float accelValue = 0.25;
+
+					MovingNode(float xPos, float yPos){
+					x = xPos;
+					y = yPos;
+					numNeighbors = 0;
+					neighbors = new ArrayList<MovingNode>();
+					}
+
+					// afficher une particule qui se déplace
+					void display(){
+					move();    
+					noStroke();
+					fill(0,fillColor,0,125);
+					ellipse(x,y,nodeWidth,nodeHeight);
+					} // FIN VOID DISPLAY
+
+					// faire se déplacer les particules en fonction des valeurs en class move
+					void move(){
+					xAccel = random(-accelValue,accelValue);
+					yAccel = random(-accelValue,accelValue);
+					    
+					xVel += xAccel;
+					yVel += yAccel;
+					    
+					x += xVel;
+					y += yVel;
+					} // FIN VOID MOVE
+					  
+					// faire un déplacement supp. aux particules qui sont voisines
+					void addNeighbor(MovingNode node){
+					neighbors.add(node);
+					}
+					  
+					void setNumNeighbors(int num){
+					numNeighbors = num;
+					}
+					  
+					void clearNeighbors(){
+					neighbors = new ArrayList<MovingNode>();
+					}
+
+
+
+					  
+					float calculateLineColor(MovingNode neighborNode, float maxDistance){
+					float distance = sqrt((x-neighborNode.x)*(x-neighborNode.x) + (y-neighborNode.y)*(y-neighborNode.y));
+					lineColor = (distance/maxDistance)*lineColorRange;
+					return lineColor;
+					}    
+					}
+
+
+
+					// class particule (graine)
+					class Node{
+					float x;
+					float y;
+					int numNeighbors;
+					ArrayList<Node> neighbors;
+					float lineColor;
+					float nodeWidth = 3;
+					float nodeHeight = 3;
+					  
+					//couleur des graines
+					float fillColor = 255;
+					float lineColorRange = 255;
+
+					Node(float xPos, float yPos){
+					x = xPos;
+					y = yPos;
+					numNeighbors = 0;
+					neighbors = new ArrayList<Node>();
+					}
+					  
+					// afficher une particule sans move
+					void display(){
+					noStroke();
+					fill(fillColor);
+					ellipse(x,y,nodeWidth,nodeHeight);
+					}
+
+					// afficher les particules voisines
+					void addNeighbor(Node node){
+					neighbors.add(node);
+					}
+					  
+					void setNumNeighbors(int num){
+					numNeighbors = num;
+					}
+					  
+					void clearNeighbors(){
+					neighbors = new ArrayList<Node>();
+					}
+					  
+					float calculateLineColor(Node neighborNode, float maxDistance){
+					float distance = sqrt((x-neighborNode.x)*(x-neighborNode.x) + (y-neighborNode.y)*(y-neighborNode.y));
+					lineColor = (distance/maxDistance)*lineColorRange;
+					return lineColor;
+					}    
+					}
+				</script>
+				<!-- <canvas id="mon_prog" data-processing-sources="inov-web/inov-web.pde"/></canvas> -->
+				
+				<canvas id="mon_prog"/></canvas>
+				
+				
+			</div>
+
+		</div> <!-- end content -->
+
+	</div> <!-- end main -->
+
+<script src="script.js"></script>
+</body>
+</html>

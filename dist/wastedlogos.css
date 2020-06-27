@@ -1,0 +1,79 @@
+:root {
+	--font: #e60000;
+	--bg: #f2f2f2;
+}
+
+#content{
+	font-family: 'Fraktur';
+}
+
+#content p{
+	font-family: 'LiberationSerif';
+}
+
+#intro{
+	width: 100%;
+	height: 100vh;
+	background-image: url(img/wastedlogo-compo.jpg);
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
+}
+
+#logos img{
+	width: 100%;
+}
+
+#content h3{
+	text-transform: lowercase;
+}
+
+#content h4{
+	text-align: center;
+	text-transform: lowercase;
+/*	text-transform: uppercase;*/
+}
+
+#commande{
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-gap: 25px 25px;
+	align-items: center;
+}
+
+#refs{
+	width: 100%;
+	margin: auto;
+}
+
+#refs img{
+	width: 100%;
+}
+
+#rech{
+	width: 50%;
+	margin: auto;
+	background-color: var(--bg);
+}
+
+#rech img{
+	width: 100%;
+}
+
+#shot1{
+	width: 100%;
+	height: 100vh;
+	background-image: url(img/fire.jpg);
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
+}
+
+#shot2{
+	width: 100%;
+	height: 100vh;
+	background-image: url(img/throne.jpg);
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
+}

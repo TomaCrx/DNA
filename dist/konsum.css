@@ -1,0 +1,77 @@
+:root {
+	--font: white;
+	--bg: black;
+	--grey: #e6e6e6;
+}
+
+#content{
+	font-family: 'Liberation';
+}
+
+#logo{
+	width: 100%;
+	height: 100vh;
+	background-image: url(img/loop-logo.gif);
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
+	opacity: 0.7;
+}
+
+
+
+#instal{
+	width: 100%;
+	height: 100vh;
+	background-image: url(img/install.jpg);
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
+}
+
+#scan{
+	width: 30%;
+	margin: auto;
+	margin-bottom: 125px;
+}
+
+#scan img{
+	width: 100%;
+}
+
+#concept{
+	background-image: url(img/texturevhs.jpg);
+	background-repeat: repeat; 
+}
+
+#concept-grid{
+	margin-top: 25px;
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-gap: 150px 5px;
+	align-items: center;
+}
+
+.concept-loop{
+	width: 100%;
+}
+
+.concept-loop video{
+	width: 100%;
+}
+
+#instal2{
+	width: 100%;
+	height: 100vh;
+	background-image: url(img/installation.jpg);
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
+}
+
+#installation img{
+	width: 100%;
+}
+
+#instalVR{
+}
